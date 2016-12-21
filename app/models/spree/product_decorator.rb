@@ -29,4 +29,8 @@ Spree::Product.class_eval do
     end
   end
 
+  def supplier_ids_string
+    supplier_ids.join(',')
+  end
+
 end
