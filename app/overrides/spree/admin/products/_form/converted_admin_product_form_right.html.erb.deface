@@ -1,1 +1,3 @@
-
+<% if can? :manage, Spree::Supplier %>
+  <!-- TODO allow assignment to variants -->
+<% end %>
