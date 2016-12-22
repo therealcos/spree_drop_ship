@@ -2,6 +2,7 @@ Spree::Product.class_eval do
   after_create :set_supplier
 
   has_many :suppliers, through: :master
+  belongs_to :supplier
 
   def add_supplier!(supplier_or_id)
     splr = supplier_or_id.is_a?(Spree::Supplier) ? supplier_or_id : Spree::Supplier.find(supplier_or_id)
