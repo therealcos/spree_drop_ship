@@ -1,6 +1,6 @@
 Spree::Product.class_eval do
 
-  has_many :suppliers, through: :master
+  has_many :suppliers
 
   def add_supplier!(supplier_or_id)
     supplier = supplier_or_id.is_a?(Spree::Supplier) ? supplier_or_id : Spree::Supplier.find(supplier_or_id)
