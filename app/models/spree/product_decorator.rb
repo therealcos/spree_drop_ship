@@ -4,7 +4,7 @@ Spree::Product.class_eval do
   has_many :suppliers, through: :master
   belongs_to :supplier
 
-  validates :supplier
+  validates :supplier, presence: true
 
   def add_supplier!(supplier_or_id)
     splr = supplier_or_id.is_a?(Spree::Supplier) ? supplier_or_id : Spree::Supplier.find(supplier_or_id)
