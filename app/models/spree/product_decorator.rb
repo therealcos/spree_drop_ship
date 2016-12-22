@@ -1,6 +1,6 @@
 Spree::Product.class_eval do
 
-  has_many :suppliers
+  has_many :suppliers, through: :master
 
   def add_supplier!(supplier_or_id)
     supplier = supplier_or_id.is_a?(Spree::Supplier) ? supplier_or_id : Spree::Supplier.find(supplier_or_id)
@@ -27,10 +27,6 @@ Spree::Product.class_eval do
         supplier.stock_locations.each { |location| location.propagate_variant(variant) }
       end
     end
-  end
-
-  def supplier_ids_string
-    supplier_ids.join(',')
   end
 
 end
